@@ -1,0 +1,17 @@
+#!/bin/bash
+ echo "System Health Check - $(date)" >> /var/log/system_health.log
+
+#Check the CPU Load
+echo "CPU Load:" >> /var/log/sytem_health.log
+uptime >> /var/log/system_health.log
+
+#Check memory Usage
+echo "Memory Usage:" >> /var/log/system_health.log
+free -h >>  /var/log/system_health.log
+
+# Check Disk Space
+
+echo " Disk Usage:" >> /var/log/system_health.log
+df -h >> /var/log/system_health.log
+
+echo "----------------------" >> /var/log/system_health.log
