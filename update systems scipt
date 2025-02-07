@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Starting system update at $(date)" >> /var/log/update.log
+
+## Update and  upgrade packages
+
+sudo apt update && sudo apt upgrade -y
+
+# clean up nnnecessary packages
+sudo apt autoremove -y
+sudo apt clean
+
+echo "System update completed successfully" >> /var/log/update.log
