@@ -1,0 +1,13 @@
+#!/bin/bash
+# Sync the files with rsync
+SOURCE="/Documents"
+DESTINATION="/mnt/backup"
+
+rsync -av --delete "$SOURCE" "$DESTINATION"
+
+# Compress the file
+BACKUP_FILE=/mnt/backup/documents_$(date +%F).tar.gz
+tar -czf "$BACKUP_FILE" "$SOURCE"
+
+# Log the backup
+echo "Backup completed at $(date)" >> /var/log/backup.log
