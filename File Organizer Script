@@ -1,0 +1,17 @@
+#!/bin/bash
+
+DOWNLOADS_DIR= "$HOME/Downloads"
+DOCUMENTS_DIR="$HOME/Documents"
+IMAGES_DIR="$HOME/Pictures"
+VIDEOS_DIR="$HOME/Videos"
+
+#moving the PDF's to documents
+mv "$DOWNLOADS_DIR"/*.pdf "$DOCUMENTS_DIR" 2>/dev/null
+
+#moving images to picture
+
+mv "$DOWNLOADS_DIR"/*. {jpg,png,gif} "$IMAGES_DIR" 2>/dev/null
+
+#move videos to Videos
+mv "$DOWNLOADS_DIR" /*. {mp4,mkv,avi} "$VIDEOS_DIR" 2>/dev/null
+echo "files organized at $(date)" >> /var/log/file_organizer.log
